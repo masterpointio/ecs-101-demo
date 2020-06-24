@@ -1,10 +1,14 @@
 {
-  "test":{
+  "test": {
     "PORT": 3000,
     "MONGODB_URI": "mongodb://mongo:27017/TodoAppTest"
   },
-  "development":{
+  "development": {
     "PORT": 3000,
     "MONGODB_URI": "mongodb://mongo:27017/TodoApp"
+  },
+  "prod": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://ecs101-service.ecs101.local:27017/TodoApp"
   }
 }
