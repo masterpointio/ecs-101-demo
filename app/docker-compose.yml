@@ -1,14 +1,12 @@
 version: "3.7"
 services:
   frontend:
+    container_name: frontend
+    command: bash -c serve -s
     build: frontend
     ports:
-      - 3000:3000
+      - 5000:5000
     stdin_open: true
-    volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    container_name: frontend
     restart: always
     networks:
       - react-express
@@ -17,11 +15,11 @@ services:
 
   backend:
     container_name: backend
+    command:
+      - npm
+      - start
     restart: always
     build: backend
-    volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
     depends_on:
       - mongo
     networks:
