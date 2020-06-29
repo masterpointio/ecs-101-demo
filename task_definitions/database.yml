@@ -1,0 +1,42 @@
+# NOTE: This has been copied directly out of the AWS Console, but has been
+# paired down to the important parts.
+family: mp-ecs101-database
+memory: "512"
+cpu: "256"
+networkMode: awsvpc
+executionRoleArn: arn:aws:iam::444085324490:role/mp-ecs101-database-exec
+taskRoleArn: arn:aws:iam::444085324490:role/mp-ecs101-database-task
+containerDefinitions:
+  - name: database
+    image: mongo:4.2.0
+    cpu: 256
+    memory: 512
+    command: null
+    environment: []
+    essential: true
+    logConfiguration:
+      logDriver: awslogs
+      secretOptions: null
+      options:
+        awslogs-group: /ecs/ecs101/
+        awslogs-region: us-west-2
+        awslogs-create-group: "true"
+        awslogs-stream-prefix: database
+    portMappings:
+      - hostPort: 27017
+        containerPort: 27017
+        protocol: tcp
+    healthCheck:
+      retries: 3
+      command:
+        - CMD-SHELL
+        - echo 'dummy healthcheck' || exit 1
+      timeout: 20
+      interval: 30
+      startPeriod: 30
+placementConstraints: []
+compatibilities:
+  - EC2
+  - FARGATE
+requiresCompatibilities:
+  - EC2
