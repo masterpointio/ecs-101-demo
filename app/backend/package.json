@@ -7,7 +7,8 @@
     "start": "node server.js",
     "format": "prettier --write {**/,}*.js",
     "lint": "prettier --check {**/,}*.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "reset_db": "node reset_db.js"
   },
   "author": "Syed Afzal",
   "license": "ISC",
