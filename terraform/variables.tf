@@ -30,7 +30,7 @@ variable "domain" {
 #########################
 
 variable "instance_type" {
-  default     = "t3.micro"
+  default     = "t3.small"
   type        = string
   description = "The instance type to use for the Backend EC2 instances."
 }
@@ -39,6 +39,12 @@ variable "ami" {
   default     = ""
   type        = string
   description = "The AMI to use for the Backend EC2 instances. If not provided, the latest ECS Optimized AMI will be used. Note: This will update periodically as AWS releases updates to that AMI. Pin to a specific AMI if you would like to avoid these updates."
+}
+
+variable "db_ami" {
+  default     = ""
+  type        = string
+  description = "The AMI to use for the DB EC2 instances. If not provided, the latest ECS Optimized AMI will be used. Note: This will update periodically as AWS releases updates to that AMI. Pin to a specific AMI if you would like to avoid these updates."
 }
 
 variable "key_pair_name" {
