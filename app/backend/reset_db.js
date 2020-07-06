@@ -7,7 +7,7 @@ const app = {
   emit: function (msg) {
     console.log("Emitted: ", msg)
     Todo.deleteMany({}, (err, result) => {
-      if (err === null) {
+      if (err != null) {
         console.log("Err: ", err, " Result ", result)
         process.exit(1)
       } else {
