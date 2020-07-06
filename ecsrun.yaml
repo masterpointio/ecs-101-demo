@@ -1,0 +1,14 @@
+reset_db:
+  cluster: mp-ecs101-app
+  cmd:
+    - chamber
+    - exec
+    - backend
+    - --
+    - npm
+    - run
+    - reset_db
+  security-group: sg-029886b128bfbe283
+  subnet: subnet-025860b220278a0b0
+  task: mp-ecs101-backend
+  name: backend
