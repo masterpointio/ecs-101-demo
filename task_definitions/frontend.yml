@@ -8,7 +8,7 @@ executionRoleArn: arn:aws:iam::444085324490:role/mp-ecs101-frontend-exec
 taskRoleArn: arn:aws:iam::444085324490:role/mp-ecs101-frontend-task
 containerDefinitions:
   - name: frontend
-    image: gowiem/ecs-101-frontend:latest
+    image: 444085324490.dkr.ecr.us-west-2.amazonaws.com/mp-ecs101-frontend:latest
     command: null
     cpu: 256
     memory: 512
